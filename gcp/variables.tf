@@ -1,7 +1,7 @@
 variable "project_id" {
-  type    = string
-  default = "my project id"
-  project = "the project id for the GCP project to deploy on"
+  type        = string
+  default     = "my project id"
+  description = "the project id for the GCP project to deploy on"
 }
 
 variable "deployment_name" {

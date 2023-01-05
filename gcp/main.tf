@@ -1,10 +1,63 @@
-# google_client_config and kubernetes provider must be explicitly specified like the following.
+terraform {
+  required_version = ">=0.13"
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 4.29.0, < 5.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.10"
+    }
+  }
+  provider_meta "google" {
+    module_name = "blueprints/terraform/terraform-google-kubernetes-engine/v23.1.0"
+  }
+}
+
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
   host                   = "https://${module.gke.endpoint}"
   token                  = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
+}
+
+module "vpc" {
+  source  = "terraform-google-modules/network/google"
+  version = "~> 4.0"
+
+  project_id   = var.project_id
+  network_name = "vpc-terraform-${var.deployment_name}"
+
+  subnets = [
+    {
+      subnet_name   = "subnet-01"
+      subnet_ip     = "10.10.10.0/24"
+      subnet_region = var.region
+    },
+    {
+      subnet_name           = "subnet-02"
+      subnet_ip             = "10.10.20.0/24"
+      subnet_region         = var.region
+      subnet_private_access = "true"
+      subnet_flow_logs      = "true"
+    },
+  ]
+
+  secondary_ranges = {
+    subnet-01 = [
+      {
+        range_name    = "subnet-01-gke-01-pods"
+        ip_cidr_range = "192.168.0.0/16"
+      },
+      {
+        range_name    = "subnet-01-gke-01-services"
+        ip_cidr_range = "192.170.68.0/24"
+      }
+    ]
+  }
 }
 
 module "gke" {
@@ -14,9 +67,9 @@ module "gke" {
   name                       = var.deployment_name
   region                     = var.region
   network                    = module.vpc.network_name
-  subnetwork                 = "us-central1-01"
-  ip_range_pods              = "us-central1-01-gke-01-pods"
-  ip_range_services          = "us-central1-01-gke-01-services"
+  subnetwork                 = "subnet-01"
+  ip_range_pods              = "subnet-01-gke-01-pods"
+  ip_range_services          = "subnet-01-gke-01-services"
   http_load_balancing        = true
   network_policy             = false
   horizontal_pod_autoscaling = false
