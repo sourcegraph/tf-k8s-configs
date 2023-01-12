@@ -37,13 +37,6 @@ module "vpc" {
       subnet_ip     = "10.10.10.0/24"
       subnet_region = var.region
     },
-    {
-      subnet_name           = "subnet-02"
-      subnet_ip             = "10.10.20.0/24"
-      subnet_region         = var.region
-      subnet_private_access = "true"
-      subnet_flow_logs      = "true"
-    },
   ]
 
   secondary_ranges = {
@@ -66,6 +59,7 @@ module "gke" {
   project_id                 = var.project_id
   name                       = var.deployment_name
   region                     = var.region
+  zones                      = var.zones
   network                    = module.vpc.network_name
   subnetwork                 = "subnet-01"
   ip_range_pods              = "subnet-01-gke-01-pods"
@@ -86,20 +80,21 @@ module "gke" {
 
   node_pools = [
     {
-      name               = "default-node-pool"
-      machine_type       = var.instance_type
-      min_count          = var.node_min_count
-      max_count          = var.node_max_count
-      local_ssd_count    = 0
-      spot               = false
-      disk_size_gb       = 100
-      disk_type          = "pd-standard"
-      image_type         = "COS_CONTAINERD"
-      enable_gcfs        = false
-      enable_gvnic       = false
-      auto_repair        = true
-      auto_upgrade       = true
-      service_account    = "${var.service_account}@${var.project_id}.iam.gserviceaccount.com"
+      name            = "default-node-pool"
+      machine_type    = var.instance_type
+      min_count       = var.node_min_count
+      max_count       = var.node_max_count
+      local_ssd_count = 0
+      spot            = false
+      disk_size_gb    = 100
+      disk_type       = "pd-standard"
+      image_type      = "COS_CONTAINERD"
+      enable_gcfs     = false
+      enable_gvnic    = false
+      auto_repair     = true
+      auto_upgrade    = true
+      ### uncomment and edit this line if you are using a custom service_account ###
+      # service_account    = "${var.service_account}@${var.project_id}.iam.gserviceaccount.com"
       preemptible        = false
       initial_node_count = var.node_desired_count
     },
@@ -109,6 +104,26 @@ module "gke" {
     all = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
+    ]
+  }
+
+  node_pools_metadata = {
+    all = {}
+
+    default-node-pool = {
+      node-pool-metadata-custom-value = "my-node-pool"
+    }
+  }
+
+  node_pools_taints = {
+    all = []
+
+    default-node-pool = [
+      {
+        key    = "default-node-pool"
+        value  = true
+        effect = "PREFER_NO_SCHEDULE"
+      },
     ]
   }
 

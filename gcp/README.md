@@ -4,7 +4,7 @@
 
 1. Create a project in GCP and enable Google Kubernetes Engine (GKE) for the project.
 2. Install [`gcloud`](https://cloud.google.com/sdk/docs/install) and [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) on your local machine.
-3. GCP credentials will allow you to perform administrative actions using IaC tooling. To create them:
+3. [OPTIONAL] Create a service account. If you choose not to, terraform will provision one for you during the `apply` step. To create your own follow the steps below:
 
 > - Go to the [create service account](https://console.cloud.google.com/apis/credentials/serviceaccountkey) key page
 > - Select the default service account or create a new one

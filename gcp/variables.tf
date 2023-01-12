@@ -12,8 +12,14 @@ variable "deployment_name" {
 
 variable "region" {
   type        = string
-  default     = "us-east1"
+  default     = "us-central1"
   description = "region to deploy cluster to"
+}
+
+variable "zones" {
+  type        = list(string)
+  default     = ["us-central1-a"]
+  description = "zones to deploy cluster to"
 }
 
 ### Autoscaling variables ###
