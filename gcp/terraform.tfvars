@@ -13,7 +13,7 @@
 # service_account = "project-service-account"
 # instance_type = "n1-standard-32"
 # node_min_count = 0
-# node_max_count = 4
+# node_max_count = 2
 # node_desired_count = 2
 
 ### Autoscaling Variables ###

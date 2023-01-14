@@ -25,13 +25,13 @@ variable "zones" {
 ### Autoscaling variables ###
 variable "min_cpu_cores" {
   type        = number
-  default     = 0
+  default     = 1
   description = "Minimum total CPU cores for auto-scaling nodes"
 }
 
 variable "min_memory_gb" {
   type        = number
-  default     = 0
+  default     = 1
   description = "Minimum total GB of memory for auto-scaling nodes"
 }
 
@@ -56,19 +56,19 @@ variable "gpu_resources" {
 ### Node pool variables ###
 variable "instance_type" {
   type        = string
-  default     = "e2-medium"
+  default     = "n1-standard-32"
   description = "The instance type for the nodes in the cluster"
 }
 
 variable "node_min_count" {
   type        = number
-  default     = 1
+  default     = 0
   description = "Minimum number of nodes to be available in the node pool"
 }
 
 variable "node_max_count" {
   type        = number
-  default     = 100
+  default     = 2
   description = "Maximum number of nodes to be available in the node pool"
 }
 
@@ -80,6 +80,6 @@ variable "service_account" {
 
 variable "node_desired_count" {
   type        = number
-  default     = 1
+  default     = 2
   description = "Desired number of nodes to be available in the node pool"
 }
