@@ -26,3 +26,8 @@ From inside the cloned directory:
 3. Run `terraform apply`. This will deploy the cluster to the specified GCP project. Type 'yes' at the prompt.
 
 Congrats. You have a Kubernetes cluster. Next, [it's time to deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
+
+### Managing Your Cluster with Kubectl
+To pull logs and manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for with [`gcloud`](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl). You can do so with the following command:
+
+`gcloud container clusters --region=$REGION get-credentials $CLUSTER_NAME`
