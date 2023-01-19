@@ -29,7 +29,7 @@ module "eks" {
 
       min_size = var.node_group_one_min_size
       max_size = var.node_group_one_max_size
-      # desired_size = var.node_group_one_desired_size
+      desired_size = var.node_group_one_desired_size
 
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
@@ -52,7 +52,7 @@ module "eks" {
 
       min_size = var.node_group_two_min_size
       max_size = var.node_group_two_max_size
-      # desired_size = var.node_group_two_desired_size
+      desired_size = var.node_group_two_desired_size
 
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
