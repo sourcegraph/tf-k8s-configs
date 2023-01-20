@@ -44,28 +44,5 @@ module "eks" {
         "k8s.io/cluster-autoscaler/enabled"               = true
       }
     }
-
-    two = {
-      name = "node-group-2"
-
-      instance_types = var.node_group_two_instance_types
-
-      min_size = var.node_group_two_min_size
-      max_size = var.node_group_two_max_size
-      desired_size = var.node_group_two_desired_size
-
-      pre_bootstrap_user_data = <<-EOT
-      echo 'foo bar'
-      EOT
-
-      vpc_security_group_ids = [
-        aws_security_group.node_group_two.id
-      ]
-
-      tags = {
-        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
-        "k8s.io/cluster-autoscaler/enabled"               = true
-      }
-    }
   }
 }
