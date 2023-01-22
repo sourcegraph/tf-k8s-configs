@@ -13,7 +13,7 @@ variable "deployment_name" {
 ### Node Group One ###
 variable "node_group_one_instance_types" {
   description = "Instance types to use in node group one"
-  type        = list
+  type        = list(any)
   default     = ["m6a.4xlarge"]
 }
 variable "node_group_one_min_size" {

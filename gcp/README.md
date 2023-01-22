@@ -21,7 +21,8 @@ From inside the cloned directory:
 2. Run `terraform plan`. This will perform a dry run and find any problems with your configuration.
 3. Run `terraform apply`. This will deploy the cluster to the specified GCP project. Type 'yes' at the prompt.
 
+Congrats. You have a Kubernetes cluster. Next, [it's time to deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
+
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.
 
-Congrats. You have a Kubernetes cluster. Next, [it's time to deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).

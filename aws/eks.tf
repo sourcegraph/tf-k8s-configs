@@ -27,8 +27,8 @@ module "eks" {
 
       instance_types = var.node_group_one_instance_types
 
-      min_size = var.node_group_one_min_size
-      max_size = var.node_group_one_max_size
+      min_size     = var.node_group_one_min_size
+      max_size     = var.node_group_one_max_size
       desired_size = var.node_group_one_desired_size
 
       pre_bootstrap_user_data = <<-EOT
