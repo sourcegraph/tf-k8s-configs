@@ -31,10 +31,6 @@ module "eks" {
       max_size     = var.node_group_one_max_size
       desired_size = var.node_group_one_desired_size
 
-      pre_bootstrap_user_data = <<-EOT
-      echo 'foo bar'
-      EOT
-
       vpc_security_group_ids = [
         aws_security_group.node_group_one.id
       ]
