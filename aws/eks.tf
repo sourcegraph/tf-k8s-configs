@@ -13,6 +13,7 @@ module "eks" {
   }
 
   eks_managed_node_group_defaults = {
+    # Amazon Linux 2 x86_64: https://aws.amazon.com/marketplace/pp/prodview-zc4x2k7vt6rpu
     ami_type = "AL2_x86_64"
 
     attach_cluster_primary_security_group = true
