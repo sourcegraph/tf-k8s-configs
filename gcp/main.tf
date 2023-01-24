@@ -56,6 +56,7 @@ module "vpc" {
 module "gke" {
   depends_on                 = [module.vpc]
   source                     = "terraform-google-modules/kubernetes-engine/google"
+  version                    = "24.1.0"
   project_id                 = var.project_id
   name                       = var.deployment_name
   region                     = var.region
