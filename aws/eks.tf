@@ -23,7 +23,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     default = {
-      name = "node-group-1"
+      name = "sg-node-group-1"
 
       instance_types = var.node_group_one_instance_types
 
