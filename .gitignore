@@ -10,4 +10,3 @@ aws/terraform.tfstate
 aws/terraform.tfstate.backup
 aws/terraform.tfstate.backup
 aws/apply.txt
-aws/iampolicy.tf

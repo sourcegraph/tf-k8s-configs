@@ -4,7 +4,8 @@ resource "aws_iam_role_policy" "elb_policy" {
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
-  policy = file("./resources/iam-policy.json")
+  /* policy = file("./resources/iam-policy.json") */
+  policy = data.aws_iam_policy_document.default_iam_policy.json
 }
 
 resource "aws_iam_role" "elb_role" {
