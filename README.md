@@ -21,4 +21,5 @@ To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.
 
 `aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME`
 
-4. Run `kubectl cluster-info` to test if it worked.
+4. Run `kubectl config current-context` to see the current context
+5. (Optionally) Run `kubectl cluster-info` to see information about the current cluster
