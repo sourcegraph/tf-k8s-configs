@@ -1,5 +1,12 @@
-./gcp/.terraform
+./gcp/.terraform/*
 ./gcp/.terraform.lock.hcl
 ./gcp/terraform.tfstate
 ./gcp/terraform.tfstate.backup
 ./gcp/terraform.tfstate.backup
+
+aws/.terraform
+aws/dev-scripts/tf-down.sh
+aws/terraform.tfstate
+aws/terraform.tfstate.backup
+aws/terraform.tfstate.backup
+aws/apply.txt
