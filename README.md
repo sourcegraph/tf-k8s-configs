@@ -8,7 +8,7 @@ Follow these steps after you've deployed your cluster to AWS or GCP.
 To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
 
 1. For both commands you'll need to set the env variables first:
-    ```
+    ```bash
     export $REGION=<the region code for your cluster>
     export $CLUSTER_NAME=<the name of your cluster on GCP or AWS>
     ```
