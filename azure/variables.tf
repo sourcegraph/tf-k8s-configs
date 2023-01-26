@@ -19,25 +19,25 @@ variable "node_pool_name" {
 variable "max_count" {
   description = "max number of nodes on the default node pool"
   type        = string
-  default       = 6
+  default     = 6
 }
 
 variable "min_count" {
   description = "min number of nodes on the default node pool"
   type        = string
-  default       = 2
+  default     = 2
 }
 
 variable "node_count" {
   description = "number of nodes on the default node pool"
   type        = string
-  default       = 4
+  default     = 4
 }
 
 variable "instance_type" {
   description = "machine type for default node pool"
   type        = string
-  default       = "standard_d16s_v3"
+  default     = "standard_d16s_v3"
 }
 
 variable "appId" {
