@@ -21,5 +21,9 @@ To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.
 
 `aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME`
 
+4. If you are using [`az`](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials), configure `kubectl` by running:
+
+`az aks get-credentials --resource-group [resource-group-name] --name [aks-cluster-name]
+
 4. Run `kubectl config current-context` to see the current context
 5. (Optionally) Run `kubectl cluster-info` to see information about the current cluster
