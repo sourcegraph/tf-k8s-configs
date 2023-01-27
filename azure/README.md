@@ -2,8 +2,10 @@
 1. An Azure account
 2. The Azure CLI, [installed](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and [logged in](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 3. Create an Azure Active Directory service principal with the following command (must be [logged in](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli) first):
-`az ad sp create-for-rbac --skip-assignment`
-You will use the output from these commands to set your variables in `terraform.tfvars`, so hold on to it.
+    ```bash
+    az ad sp create-for-rbac --skip-assignment`
+    ```
+   You will use the output from these commands to set your variables in `terraform.tfvars`, so hold on to it.
 
 ## Set your variables
 1. Fork and clone this repository to your local machine.
