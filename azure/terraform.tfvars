@@ -2,7 +2,9 @@
 # appId = <appId> 
 # password = <password>
 
+# resource_group_name = "sg-resource-group"
 # cluster_name = "sourcegraph-cluster"
+# vnet_name = "sg-network"
 # location = "eastus"
 # node_pool_name = "sgnodes"
 # max_count = "6"

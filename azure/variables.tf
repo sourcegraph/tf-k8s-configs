@@ -1,3 +1,15 @@
+variable "resource_group_name" {
+  description = "name of the resource group"
+  type        = string
+  default     = "sg-resource-group"
+}
+
+variable "vnet_name" {
+  description = "name of the virtual network"
+  type        = string
+  default     = "sg-network"
+}
+
 variable "cluster_name" {
   description = "Name of the cluster"
   type        = string
