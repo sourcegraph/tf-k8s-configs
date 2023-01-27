@@ -1,6 +1,9 @@
 ### Deploy a Kubernetes Cluster
 
-Pick the platform you want to deploy your cluster to, and follow the instructions in the README of the corresponding directory.
+
+To use these terraform configurations, you'll need to install [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) on your local machine.
+
+Next, pick the platform you want to deploy your cluster to, and follow the instructions in the README of the corresponding directory.
 
 ## Managing Your Cluster with Kubectl
 Follow these steps after you've deployed your cluster to AWS or GCP. 

@@ -12,14 +12,16 @@
 > - Save this JSON file in the ~/.config/gcloud/ directory (you can rename it)
 
 ### Set your variables
-1. Clone this repository to your local machine.
-2. Replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
+1. Fork and clone this repository to your local machine.
+2. `cd` into `gcp`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the cluster
 From inside the cloned directory:
 1. Run `terraform init`. This will initialize the terraform project.
 2. Run `terraform plan`. This will perform a dry run and find any problems with your configuration.
 3. Run `terraform apply`. This will deploy the cluster to the specified GCP project. Type 'yes' at the prompt.
+
+A successful deployment will result in a success message. At this point, you may wish to use `kubectl` to manage your cluster. Instructions for doing so are in the README in the root directory of this repository.
 
 Congrats. You have a Kubernetes cluster. Next, [it's time to deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
 
