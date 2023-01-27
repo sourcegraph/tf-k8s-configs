@@ -2,7 +2,10 @@
 
 ### Prerequisites
 1. Create a project in GCP and enable Google Kubernetes Engine (GKE) for the project.
-2. Install [`gcloud`](https://cloud.google.com/sdk/docs/install) and [`terraform`](https://developer.hashicorp.com/terraform/downloads) on your local machine.
+2. Install [`gcloud`](https://cloud.google.com/sdk/docs/install). Then set the project:
+   ```bash
+   gcloud config set project <project name>
+   ```
 3. [OPTIONAL] Create a service account. If you choose not to, terraform will provision one for you during the `apply` step. To create your own follow the steps below:
 
 > - Go to the [create service account](https://console.cloud.google.com/apis/credentials/serviceaccountkey) key page
@@ -13,7 +16,7 @@
 
 ### Set your variables
 1. Fork and clone this repository to your local machine.
-2. `cd` into `gcp`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
+2. `cd` into `./gcp`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the cluster
 From inside the `./gcp` directory of this project:
@@ -36,7 +39,7 @@ To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.
     ```bash
     gcloud container clusters --region=$REGION get-credentials $CLUSTER_NAME
     ```
-3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your AKS cluster.
+3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your GKE cluster.
 
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.

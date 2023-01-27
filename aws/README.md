@@ -7,7 +7,7 @@
 
 ### Set Your Variables
 1. Fork and clone this repository to your local machine.
-2. `cd` into `aws`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
+2. `cd` into `./aws`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the Cluster
 From inside the `./aws` directory of this project:
@@ -19,7 +19,7 @@ It will take a few minutes to deploy the cluster. When finished, you will be gre
 Congratulations! You have a Kubernetes cluster. Next, it's time to [deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
 
 ## Manage Your Cluster with Kubectl
-To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
+To manage your cluster, you can use the `kubectl` [command line tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
 
 1. Set your env variables:
     ```bash
@@ -30,7 +30,7 @@ To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.
     ```bash
     aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
     ```
-3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your AKS cluster.
+3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your EKS cluster.
 
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.

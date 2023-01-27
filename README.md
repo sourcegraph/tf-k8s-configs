@@ -1,6 +1,11 @@
 ### Deploy a Kubernetes Cluster
-Provision kubernetes clusters in AWS (EKS), GCP (GKE), and Azure (AKS) quickly with these terraform configurations. 
+These Terraform configurations deploy Kubernetes clusters on AWS (EKS), GCP (GKE), and Azure (AKS) with ease. Just specify a few variables and watch your cluster come to life!
 
-To use these terraform configs, you'll need to install [`terraform`](https://developer.hashicorp.com/terraform/downloads) on your local machine.
+## Get Started
+- Install terraform
+- Pick your cloud provider: AWS, GCP, or Azure
+- Navigate to the corresponding directory
+- Follow the instructions in the corresponding README
+- Monitor the Terraform output and wait for your cluster to be ready!
 
-Next, pick the platform you want to deploy your cluster to, and follow the instructions in the README of the corresponding directory.
+That's it. Enjoy and happy Terraforming.
