@@ -10,14 +10,27 @@
 2. `cd` into `aws`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the Cluster
-From inside the cloned directory:
+From inside the `./aws` directory of this project:
 1. Run `terraform init`. This will initialize the terraform project.
 2. Run `terraform plan`. This will perform a dry run and find any problems with your configuration.
 3. Run `terraform apply`. This will deploy the cluster to AWS. Type 'yes' at the prompt.
 
-A successful deployment will result in a success message. At this point, you may wish to use `kubectl` to manage your cluster. Instructions for doing so are in the README in the root directory of this repository.
+It will take a few minutes to deploy the cluster. When finished, you will be greeted with a success message.
+Congratulations! You have a Kubernetes cluster. Next, it's time to [deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
 
-Congrats! you have a Kubernetes cluster! Next, [it's time to deploy Sourcegraph](https://docs.sourcegrapn.com/admin/deploy/kubernetes/configure)
+## Manage Your Cluster with Kubectl
+To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
+
+1. Set your env variables:
+    ```bash
+    export REGION=<region code for your cluster>
+    export CLUSTER_NAME=<the name of your cluster on GCP or AWS>
+    ```
+2. Run the following command:
+    ```bash
+    aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
+    ```
+3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your AKS cluster.
 
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.
