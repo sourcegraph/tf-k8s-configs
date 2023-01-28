@@ -3,8 +3,7 @@ This repository provides examples of provisioning Kubernetes clusters on major c
 
 ### Get Started
 - Install [terraform](https://developer.hashicorp.com/terraform/downloads)
-- Pick your cloud provider: AWS, GCP, or Azure
-- Navigate to the corresponding directory
+- `cd` into the directory corresponding to your cloud provider (AWS, GCP, or Azure)
 - Follow the instructions in the corresponding README
 - Monitor the Terraform output and wait for your cluster to deploy
 
