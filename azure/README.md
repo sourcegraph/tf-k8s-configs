@@ -8,7 +8,7 @@
    You will use the output from these commands to set your variables in `terraform.tfvars`, so hold on to it.
 
 ## Set your variables
-1. Fork and clone this repository to your local machine.
+1. If you haven't already, fork and clone this repository to your local machine.
 2. `cd` into the `./azure` directory.
 3. Uncomment and replace variables in `terraform.tfvars` with the desired values generated in the prerequisites. Check `variables.tf` for default values.
 

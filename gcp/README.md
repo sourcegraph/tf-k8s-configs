@@ -15,7 +15,7 @@
 > - Save this JSON file in the `~/.config/gcloud/` directory (you can rename it)
 
 ### Set your variables
-1. Fork and clone this repository to your local machine.
+1. If you haven't already, fork and clone this repository to your local machine.
 2. `cd` into `./gcp`, then uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the cluster
