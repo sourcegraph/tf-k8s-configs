@@ -1,6 +1,7 @@
 ## Prerequisites
 1. An Azure account
 2. The Azure CLI, [installed](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and [logged in](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+3. Associate your azure account with a [subscription](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cost-management-billing/manage/create-subscription.md). 
 3. Create an Azure Active Directory service principal with the following command (must be [logged in](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli) first):
     ```bash
     az ad sp create-for-rbac --skip-assignment
@@ -8,9 +9,7 @@
    You will use the output from these commands to set your variables in `terraform.tfvars`, so hold on to it.
 
 ## Set your variables
-1. If you haven't already, fork and clone this repository to your local machine.
-2. `cd` into the `./azure` directory.
-3. Uncomment and replace variables in `terraform.tfvars` with the desired values generated in the prerequisites. Check `variables.tf` for default values.
+Uncomment and replace variables in `terraform.tfvars` with the desired values generated in the prerequisites. Check `variables.tf` for default values.
 
 ## Deploy the cluster
 From inside the `./azure` directory of this project:
