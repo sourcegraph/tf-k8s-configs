@@ -1,5 +1,5 @@
 ## Deploy a Kubernetes Cluster with Terraform
-These Terraform configurations automate the provisioning of Kubernetes clusters on AWS (EKS), GCP (GKE), or Azure (AKS). With a few variable inputs, you can launch a fully managed Kubernetes cluster on the cloud provider of your choice.
+This repository provides examples of provisioning Kubernetes clusters on major cloud providers using Terraform. These should be treated as illustrative examples, not production-ready infrastructure configuration.
 
 ### Get Started
 - Install [terraform](https://developer.hashicorp.com/terraform/downloads)
