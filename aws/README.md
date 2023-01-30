@@ -6,30 +6,16 @@
 3. [AWS IAM Authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
 
 ### Set Your Variables
-Uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
+1. Clone this repository to your local machine.
+2. Uncomment and replace variables in `terraform.tfvars` with the desired values. Check `variables.tf` for default values.
 
 ### Deploy the Cluster
-From inside the `./aws` directory of this project:
+From inside the cloned directory:
 1. Run `terraform init`. This will initialize the terraform project.
 2. Run `terraform plan`. This will perform a dry run and find any problems with your configuration.
 3. Run `terraform apply`. This will deploy the cluster to AWS. Type 'yes' at the prompt.
 
-It will take a few minutes to deploy the cluster. When finished, you will be greeted with a success message.
-Congratulations! You have a Kubernetes cluster. Next, it's time to [deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
-
-## Manage Your Cluster with Kubectl
-To manage your cluster, you can use the `kubectl` [command line tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
-
-1. Set your env variables:
-    ```bash
-    export REGION=<region code for your cluster>
-    export CLUSTER_NAME=<the name of your cluster on GCP or AWS>
-    ```
-2. Run the following command:
-    ```bash
-    aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
-    ```
-3. Run `kubectl config current-context` to make sure `kubectl` is pointing to your EKS cluster.
+Congrats! you have a Kubernetes cluster! Next, [it's time to deploy Sourcegraph](https://docs.sourcegrapn.com/admin/deploy/kubernetes/configure)
 
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.

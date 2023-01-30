@@ -10,9 +10,3 @@ aws/terraform.tfstate
 aws/terraform.tfstate.backup
 aws/terraform.tfstate.backup
 aws/apply.txt
-
-azure/.terraform
-azure/dev-scripts/tf-down.sh
-azure/terraform.tfstate
-azure/terraform.tfstate.backup
-azure/terraform.tfstate.backup
