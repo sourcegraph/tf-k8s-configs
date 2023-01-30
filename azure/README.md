@@ -18,7 +18,7 @@ From inside the `./azure` directory of this project:
 3. Run `terraform apply`. This will deploy an AKS cluster to Azure. Type yes at the prompt.
 
 It will take a few minutes to deploy the cluster. When finished, you will be greeted with a success message.
-Congratulations! You have a Kubernetes cluster. Next, it's time to [deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
+Next, [deploy Sourcegraph](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure).
 
 ## Manage Your Cluster with Kubectl
 To manage your cluster, you can use the `kubectl` [cli tool](https://kubernetes.io/docs/tasks/tools/), which you'll need to configure cluster access for.
