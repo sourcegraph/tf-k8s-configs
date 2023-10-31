@@ -233,7 +233,7 @@ data "aws_iam_policy_document" "default_iam_policy" {
       ]
     }
   }
-  
+
   statement {
     effect = "Allow"
     actions = [
