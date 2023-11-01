@@ -34,6 +34,10 @@ To manage your cluster, you can use the `kubectl` [command line tool](https://ku
 ### Destroy the Cluster
 1. Run `terraform destroy`. Answer yes at the prompt.
 
+### RDS databases
+
+To provision seperate RDS databases for each DB run `terraform init -var='create_rds=true'`.
+
 
 
 
