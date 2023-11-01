@@ -3,7 +3,7 @@ resource "aws_db_instance" "sourcegraph" {
   count = var.create_rds ? 1 : 0
 
   engine         = "postgres"
-  engine_version = "12.16"
+  engine_version = "13.7"
 
   instance_class    = var.frontend_db_instance_class
   allocated_storage = var.frontend_db_allocated_storage
@@ -13,6 +13,7 @@ resource "aws_db_instance" "sourcegraph" {
   password            = var.frontend_db_password
   publicly_accessible = true
 
+  db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
 
@@ -20,7 +21,7 @@ resource "aws_db_instance" "codeintel" {
   count = var.create_rds ? 1 : 0
 
   engine         = "postgres"
-  engine_version = "12.16"
+  engine_version = "13.7"
 
   instance_class    = var.codeintel_db_instance_class
   allocated_storage = var.codeintel_db_allocated_storage
@@ -30,6 +31,7 @@ resource "aws_db_instance" "codeintel" {
   password            = var.codeintel_db_password
   publicly_accessible = true
 
+  db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
 
@@ -37,7 +39,7 @@ resource "aws_db_instance" "codeinsights" {
   count = var.create_rds ? 1 : 0
 
   engine         = "postgres"
-  engine_version = "12.16"
+  engine_version = "13.7"
 
   instance_class    = var.codeinsights_db_instance_class
   allocated_storage = var.codeinsights_db_allocated_storage
@@ -47,5 +49,6 @@ resource "aws_db_instance" "codeinsights" {
   password            = var.codeinsights_db_password
   publicly_accessible = true
 
+  db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
