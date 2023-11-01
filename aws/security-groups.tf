@@ -22,5 +22,9 @@ resource "aws_security_group" "rds" {
     to_port         = 5432
     protocol        = "tcp"
     security_groups = [aws_security_group.node_group_one.id]
+
+    cidr_blocks = [
+      "10.0.0.0/8",
+    ]
   }
 }
