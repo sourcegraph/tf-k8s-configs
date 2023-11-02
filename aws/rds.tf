@@ -13,6 +13,8 @@ resource "aws_db_instance" "sourcegraph" {
   password            = var.frontend_db_password
   publicly_accessible = true
 
+  skip_final_snapshot = true
+
   db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
@@ -31,6 +33,8 @@ resource "aws_db_instance" "codeintel" {
   password            = var.codeintel_db_password
   publicly_accessible = true
 
+  skip_final_snapshot = true
+
   db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
@@ -48,6 +52,8 @@ resource "aws_db_instance" "codeinsights" {
   username            = var.codeinsights_db_username
   password            = var.codeinsights_db_password
   publicly_accessible = true
+
+  skip_final_snapshot = true
 
   db_subnet_group_name   = aws_db_subnet_group.sourcegraph_dbs_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds.id]
