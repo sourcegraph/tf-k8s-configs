@@ -36,6 +36,8 @@ To manage your cluster, you can use the `kubectl` [command line tool](https://ku
 
 ### RDS databases
 
+**!!!WARNING these rds instances are insecure and should not be used in production, or with sensitive data. Do not load private repo!!!**
+
 To provision seperate RDS databases for each DB run `terraform apply -var='create_rds_dbs=true'`. For a single RDS instance to be configured with all dbs run `terraform apply -var='create_rds_single_db=true'`.
 
 
