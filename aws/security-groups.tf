@@ -14,6 +14,7 @@ resource "aws_security_group" "node_group_one" {
 }
 
 resource "aws_security_group" "rds" {
+  count       = var.create_rds_dbs || var.create_rds_single_db ? 1 : 0
   name_prefix = "rds"
   vpc_id      = module.vpc.vpc_id
 

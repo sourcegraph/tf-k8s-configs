@@ -9,7 +9,7 @@ module "vpc" {
 
   private_subnets  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets   = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  database_subnets = ["10.0.7.0/24", "10.0.8.0/24", "10.0.9.0/24"]
+  database_subnets = var.create_rds_dbs || var.create_rds_single_db ? ["10.0.7.0/24", "10.0.8.0/24", "10.0.9.0/24"] : []
 
   enable_nat_gateway   = true
   single_nat_gateway   = true
@@ -27,6 +27,8 @@ module "vpc" {
 }
 
 resource "aws_db_subnet_group" "sourcegraph_dbs_subnet_group" {
+  count = var.create_rds_dbs || var.create_rds_single_db ? 1 : 0
+
   name       = "sourcegraph_dbs_subnet_group"
   subnet_ids = module.vpc.database_subnets
 
